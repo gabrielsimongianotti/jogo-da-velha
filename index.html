@@ -10,68 +10,148 @@
 
 </head>
 <script>
-    function altera11() {
-        document.getElementById('image11').src = "imagem/x.png"
+    var x = 0;
+    var o = 0;
+    var venceu = false;
+    var matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    var jogada = true;
+    var velha = 0;
+    function altera(i, j) {
+        var n1 = j;
+        var n2 = i;
+
+        if ((jogada == true) && (matrix[n1][n2] == 0) && (venceu == false)) {
+            // x
+            document.getElementById('image' + i + j).src = "imagem/x.png";
+            jogada = false;
+            matrix[n1][n2] = 1;
+            velha++;
+        } else if ((jogada == false) && (matrix[n1][n2] == 0) && (venceu == false)) {
+            // o
+            document.getElementById('image' + i + j).src = "imagem/o.png";
+            jogada = true;
+            matrix[n1][n2] = 2;
+            velha++;
+        }
+        if (venceu == false) {
+            vencedor(matrix);
+            console.log('velha ' + velha);
+        }
+
     }
-    function altera12() {
-        document.getElementById('image12').src = "imagem/x.png"
+    function vencedor(matrix) {
+        console.log(matrix);
+        console.log("ok");
+
+        for (var v = 1; v < 3; v++) {
+            for (var n = 0; n < 3; n++) {
+                if ((matrix[0][n] == v) && (matrix[1][n] == v) && (matrix[2][n] == v)) {
+                    placar(v);
+                    break;
+                }
+                else if ((matrix[n][0] == v) && (matrix[n][1] == v) && (matrix[n][2] == v)) {
+                    placar(v);
+                    break;
+                } else if ((matrix[0][0] == v) && (matrix[1][1] == v) && (matrix[2][2] == v)) {
+                    placar(v);
+                    break;
+                } else if ((matrix[0][2] == v) && (matrix[1][1] == v) && (matrix[2][0] == v)) {
+                    placar(v);
+                    break;
+                }
+
+
+            }
+            if ((velha == 9) && (venceu == false)) {
+                console.log('deu velha');
+                break;
+            }
+        }
     }
-    function altera13() {
-        document.getElementById('image13').src = "imagem/x.png"
+    function placar(v) {
+        if (v == 1) {
+            x++;
+            venceu = true;
+            console.log('X venceu' + x);
+            document.getElementById('x').innerHTML = x;
+        } else {
+            o++;
+            venceu = true;
+            console.log('O venceu' + o);
+            document.getElementById('o').innerHTML = o;
+        }
     }
-    function altera21() {
-        document.getElementById('image21').src = "imagem/x.png"
+    function revanche() {
+        venceu = false;
+        matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                document.getElementById('image' + i + j).src = "./imagem/quadrado.png";
+            }
+        }
+
+
+
     }
-    function altera22() {
-        document.getElementById('image22').src = "imagem/x.png"
+    function valorO() {
+        jogada = false;
+        document.getElementById('x').style.color = '#4CAF50';
+        document.getElementById('o').style.color = 'rgb(76, 175, 144)';
+        revanche();
     }
-    function altera23() {
-        document.getElementById('image23').src = "imagem/x.png"
-    }
-    function altera31() {
-        document.getElementById('image31').src = "imagem/x.png"
-    }
-    function altera32() {
-        document.getElementById('image32').src = "imagem/x.png"
-    }
-    function altera33() {
-        document.getElementById('image33').src = "imagem/x.png"
+    function valorX() {
+        jogada = true;
+        document.getElementById('x').style.ativo;
+        document.getElementById('o').style.cor;
+        revanche();
     }
 </script>
 
 <body>
+    <div class="placar">
+        <p>X</p>
+        <p id="x">0</p>
+        <p>O</p>
+        <p id="o">0</p>
+    </div>
+    <button onclick="revanche();">revanche</button>
+
+    <a onclick="valorX();" id="x" class="botao ativo">X</a>
+    <a onclick="valorO();" id="o" class="botao cor">O</a>
+
 
     <div class="img">
-        <img src="./imagem/campo.png" width="46%" height="46%" >
+        <img src="./imagem/campo.png" width="46%" height="46%">
         <div class=icone11>
-            <img src="./imagem/o.png" onclick="altera11();" width="46%" height="46%" id ="image11">
+            <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
         </div>
         <div class=icone12>
-            <img src="./imagem/o.png" onclick="altera12();" width="46%" height="46%" id ="image12">
+            <img src="./imagem/quadrado.png" onclick="altera(0,1);" width="46%" height="46%" id="image01">
         </div>
         <div class=icone13>
-            <img src="./imagem/o.png" onclick="altera13();" width="46%" height="46%" id ="image13">
+            <img src="./imagem/quadrado.png" onclick="altera(0,2);" width="46%" height="46%" id="image02">
         </div>
         <div class=icone21>
-            <img src="./imagem/o.png" onclick="altera21();" width="46%" height="46%" id ="image21">
+            <img src="./imagem/quadrado.png" onclick="altera(1,0);" width="46%" height="46%" id="image10">
         </div>
         <div class=icone22>
-            <img src="./imagem/o.png" width="46%" height="46%" id ="image">
+            <img src="./imagem/quadrado.png" onclick="altera(1,1);" width="46%" height="46%" id="image11">
         </div>
         <div class=icone23>
-            <img src="./imagem/o.png" width="46%" height="46%" id ="image">
+            <img src="./imagem/quadrado.png" onclick="altera(1,2);" width="46%" height="46%" id="image12">
         </div>
         <div class=icone31>
-            <img src="./imagem/o.png" width="46%" height="46%" id ="image">
+            <img src="./imagem/quadrado.png" onclick="altera(2,0);" width="46%" height="46%" id="image20">
         </div>
         <div class=icone32>
-            <img src="./imagem/o.png" width="46%" height="46%" id ="image">
+            <img src="./imagem/quadrado.png" onclick="altera(2,1);" width="46%" height="46%" id="image21">
         </div>
         <div class=icone33>
-            <img src="./imagem/o.png" width="46%" height="46%" id ="image">
+            <img src="./imagem/quadrado.png" onclick="altera(2,2);" width="46%" height="46%" id="image22">
         </div>
     </div>
-  
+
+
 </body>
 
 </html>
