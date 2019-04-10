@@ -65,7 +65,10 @@
             }
             if ((velha == 9) && (venceu == false)) {
                 console.log('deu velha');
+<<<<<<< HEAD
                 document.getElementById('resultado').src = "./imagem/palmirinha.png";
+=======
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
                 break;
             }
         }
@@ -89,6 +92,7 @@
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
                 document.getElementById('image' + i + j).src = "./imagem/quadrado.png";
+<<<<<<< HEAD
 
             }
         }
@@ -100,19 +104,50 @@
         jogada = false;
         document.getElementById('corX').style.backgroundColor = '#4CAF50';
         document.getElementById('corO').style.backgroundColor = 'rgb(76, 175, 144)';
+=======
+            }
+        }
+
+
+
+    }
+    function valorO() {
+        jogada = false;
+        document.getElementById('x').style.color = '#4CAF50';
+        document.getElementById('o').style.color = 'rgb(76, 175, 144)';
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
         revanche();
     }
     function valorX() {
         jogada = true;
+<<<<<<< HEAD
         document.getElementById('corX').style.backgroundColor = 'rgb(76, 175, 144)';
         document.getElementById('corO').style.backgroundColor = '#4CAF50';
+=======
+        document.getElementById('x').style.ativo;
+        document.getElementById('o').style.cor;
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
         revanche();
     }
 </script>
 
 <body>
+<<<<<<< HEAD
     <header>
         <div class="cabecalho">
+=======
+    <div class="placar">
+        <p>X</p>
+        <p id="x">0</p>
+        <p>O</p>
+        <p id="o">0</p>
+    </div>
+    <button onclick="revanche();">revanche</button>
+
+    <a onclick="valorX();" id="x" class="botao ativo">X</a>
+    <a onclick="valorO();" id="o" class="botao cor">O</a>
+
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
 
             <img src="./imagem/logo.png">
             <div class="cabecalho-direita">
@@ -133,11 +168,17 @@
     </header>
     <br>
     <div class="img">
+<<<<<<< HEAD
 
         <img src="./imagem/campo.png">
         <div class=icone11 >
             <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
             <img src="./imagem/velha.png" style="z-index:9;" id="resultado">
+=======
+        <img src="./imagem/campo.png" width="46%" height="46%">
+        <div class=icone11>
+            <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
         </div>
         <div class=icone12>
             <img src="./imagem/quadrado.png" onclick="altera(0,1);" width="46%" height="46%" id="image01">
@@ -149,9 +190,13 @@
             <img src="./imagem/quadrado.png" onclick="altera(1,0);" width="46%" height="46%" id="image10">
         </div>
         <div class=icone22>
+<<<<<<< HEAD
 
             <img src="./imagem/quadrado.png" onclick="altera(1,1);" width="46%" height="46%" id="image11">
 
+=======
+            <img src="./imagem/quadrado.png" onclick="altera(1,1);" width="46%" height="46%" id="image11">
+>>>>>>> f47bb2daf3c91fecfe90778b31117d5a91293271
         </div>
         <div class=icone23>
             <img src="./imagem/quadrado.png" onclick="altera(1,2);" width="46%" height="46%" id="image12">
