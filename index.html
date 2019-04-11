@@ -49,25 +49,29 @@
                 if ((matrix[0][n] == v) && (matrix[1][n] == v) && (matrix[2][n] == v)) {
                     placar(v);
                     break;
+                    break;
                 }
                 else if ((matrix[n][0] == v) && (matrix[n][1] == v) && (matrix[n][2] == v)) {
                     placar(v);
                     break;
+                    break;
                 } else if ((matrix[0][0] == v) && (matrix[1][1] == v) && (matrix[2][2] == v)) {
                     placar(v);
+                    break;
                     break;
                 } else if ((matrix[0][2] == v) && (matrix[1][1] == v) && (matrix[2][0] == v)) {
                     placar(v);
                     break;
-                }
-
-
-            }
-            if ((velha == 9) && (venceu == false)) {
+                    break;
+                } else if ((velha == 9) && (venceu == false)) {
                 console.log('deu velha');
                 document.getElementById('resultado').src = "./imagem/palmirinha.png";
                 break;
             }
+
+
+            }
+            
         }
     }
     function placar(v) {
@@ -83,7 +87,7 @@
             document.getElementById('o').innerHTML = o;
         }
     }
-    function revanche() {
+    function revanche(numero) {
         venceu = false;
         matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
         for (var i = 0; i < 3; i++) {
@@ -93,6 +97,11 @@
             }
         }
         velha = 0;
+        if (numero==0) {
+            jogada = true;
+            document.getElementById('corX').style.backgroundColor = 'rgb(76, 175, 144)';
+            document.getElementById('corO').style.backgroundColor = '#4CAF50';
+        }
 
         document.getElementById('resultado').src = "./imagem/velha.png"
     }
@@ -100,13 +109,13 @@
         jogada = false;
         document.getElementById('corX').style.backgroundColor = '#4CAF50';
         document.getElementById('corO').style.backgroundColor = 'rgb(76, 175, 144)';
-        revanche();
+        revanche(2);
     }
     function valorX() {
         jogada = true;
         document.getElementById('corX').style.backgroundColor = 'rgb(76, 175, 144)';
         document.getElementById('corO').style.backgroundColor = '#4CAF50';
-        revanche();
+        revanche(2);
     }
 </script>
 
@@ -122,7 +131,7 @@
                 <a>O</a>
                 <a id="o">0</a>
 
-                <a onclick="revanche();" class="botao cor">revanche</a>
+                <a onclick="revanche(0);" class="botao cor">revanche</a>
 
                 <a onclick="valorX();" id="corX" class="botao ativo">X</a>
                 <a onclick="valorO();" id="corO" class="botao cor">O</a>
@@ -135,7 +144,7 @@
     <div class="img">
 
         <img src="./imagem/campo.png">
-        <div class=icone11 >
+        <div class=icone11>
             <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
             <img src="./imagem/velha.png" style="z-index:9;" id="resultado">
         </div>
