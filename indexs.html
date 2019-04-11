@@ -88,9 +88,9 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>X ganhou</p>
-        </div>
+                <span class="close">&times;</span>
+                <p>X ganhou</p>
+            </div>
 
     </div>
 
@@ -98,11 +98,19 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>O ganhou</p>
-        </div>
-
+                <span class="close">&times;</span>
+                <p>o ganhou</p>
+            </div>
     </div>
+    <div id="myModalVelha" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Deu velha </p>
+                    <img src="./imagem/palmirinha.png" style="z-index:9;" id="resultado">
+                </div>
+        </div>
 
     <br>
     <div class="img">
@@ -110,7 +118,7 @@
         <img src="./imagem/campo.png">
         <div class=icone11>
             <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
-            <img src="./imagem/velha.png" style="z-index:9;" id="resultado">
+           
         </div>
         <div class=icone12>
             <img src="./imagem/quadrado.png" onclick="altera(0,1);" width="46%" height="46%" id="image01">
@@ -195,7 +203,8 @@
                             break;
                         } else if ((velha == 9) && (venceu == false)) {
                             console.log('deu velha');
-                            document.getElementById('resultado').src = "./imagem/palmirinha.png";
+                            modalV.style.display = "block";
+                            
                             break;
                         }
                     }
@@ -204,22 +213,22 @@
             //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
             var modalX = document.getElementById('myModalX');
             var modalO = document.getElementById('myModalO');
+            var modalVelha = document.getElementById('myModalVelha');
             var btn = document.getElementById("myBtn");
-            var span = document.getElementsByClassName("close")[0];
+            var spanV = document.getElementsByClassName("close")[2];
+            var spanO = document.getElementsByClassName("close")[1];
+            var spanX = document.getElementsByClassName("close")[0];
 
-            span.onclick = function () {
+            spanO.onclick = function () {
+                modalO.style.display = "none";
                 
+            }         
+            spanX.onclick = function () {
                 modalX.style.display = "none";
             }
-            window.onclick = function (event) {
-                
-                if (event.target == modalX) {
-                    modalX.style.display = "none";
-                } else if (event.target == modalO) {
-                    modalO.style.display = "none";
-                }
+            spanV.onclick = function () {
+                modalV.style.display = "none";
             }
-
             function placar(v) {
                 if (v == 1) {
                     x++;
@@ -242,7 +251,7 @@
                 for (var i = 0; i < 3; i++) {
                     for (var j = 0; j < 3; j++) {
                         document.getElementById('image' + i + j).src = "./imagem/quadrado.png";
-
+                       
                     }
                 }
                 velha = 0;
@@ -252,7 +261,7 @@
                     document.getElementById('corO').style.backgroundColor = '#4CAF50';
                 }
 
-                document.getElementById('resultado').src = "./imagem/velha.png"
+                
             }
             function valorO() {
                 jogada = false;
