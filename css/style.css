@@ -1,8 +1,8 @@
 
 div.img {
   position: relative;
-  width: 37%;
-  height: 37%;
+  width: 35%;
+  height: 35%;
   margin-left: auto;
   margin-right: auto 
 } 
@@ -140,7 +140,7 @@ body {
 .cabecalho a {
   text-align: left;
   border-radius: 8px;
-  padding: 15px 30px;
+  padding: 15px 28px;
   line-height: 70px;
 }
 
