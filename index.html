@@ -39,9 +39,9 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>X ganhou</p>
-            </div>
+            <span class="close">&times;</span>
+            <p>X ganhou</p>
+        </div>
 
     </div>
 
@@ -49,19 +49,19 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>o ganhou</p>
-            </div>
+            <span class="close">&times;</span>
+            <p>o ganhou</p>
+        </div>
     </div>
     <div id="myModalVelha" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Deu velha </p>
-                    <img src="./imagem/palmirinha.png" style="width:50%; height: 50%; position: relative;" >
-                </div>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Deu velha </p>
+            <img src="./imagem/palmirinha.png" style="width:50%; height: 50%; position: relative;">
         </div>
+    </div>
 
     <br>
     <div class="img">
@@ -69,7 +69,7 @@
         <img src="./imagem/campo.png">
         <div class=icone11>
             <img src="./imagem/quadrado.png" onclick="altera(0, 0);" width="46%" height="46%" id="image00">
-           
+
         </div>
         <div class=icone12>
             <img src="./imagem/quadrado.png" onclick="altera(0,1);" width="46%" height="46%" id="image01">
@@ -111,15 +111,15 @@
 
             spanO.onclick = function () {
                 modalO.style.display = "none";
-                
-            }         
+
+            }
             spanX.onclick = function () {
                 modalX.style.display = "none";
             }
             spanV.onclick = function () {
                 modalV.style.display = "none";
             }
-            
+
             var x = 0;
             var o = 0;
             var venceu = false;
@@ -157,33 +157,33 @@
                     for (var n = 0; n < 3; n++) {
                         if ((matrix[0][n] == v) && (matrix[1][n] == v) && (matrix[2][n] == v)) {
                             placar(v);
-                            
+
                             break;
                         }
                         else if ((matrix[n][0] == v) && (matrix[n][1] == v) && (matrix[n][2] == v)) {
                             placar(v);
-                    
+
                             break;
                         } else if ((matrix[0][0] == v) && (matrix[1][1] == v) && (matrix[2][2] == v)) {
                             placar(v);
-                            
+
                             break;
                         } else if ((matrix[0][2] == v) && (matrix[1][1] == v) && (matrix[2][0] == v)) {
                             placar(v);
-                            
+
                             break;
-                        } else if ((velha == 9) && (venceu == false)) {
+                        } else if ((velha == 9) && (venceu == false) && (v == 2)) {
                             console.log('deu velha');
-                            console.log(venceu,'venceu');
+                            console.log(venceu, 'venceu');
                             modalV.style.display = "block";
-                            
+
                             break;
                         }
                     }
                 }
             }
-            
-            
+
+
             function placar(v) {
                 if (v == 1) {
                     x++;
@@ -206,7 +206,7 @@
                 for (var i = 0; i < 3; i++) {
                     for (var j = 0; j < 3; j++) {
                         document.getElementById('image' + i + j).src = "./imagem/quadrado.png";
-                       
+
                     }
                 }
                 velha = 0;
@@ -216,7 +216,7 @@
                     document.getElementById('corO').style.backgroundColor = '#4CAF50';
                 }
 
-                
+
             }
             function valorO() {
                 jogada = false;
